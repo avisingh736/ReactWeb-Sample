@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import mindiii_logo from './mindiii-logo.png';
+import mindiii_logo from '../assets/mindiii-logo.png';
 
 class MyHome extends React.Component {
 	

@@ -5,9 +5,9 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-import MyTable from './MyTable';
-import MyHome from './MyHome';
-import UserDetails from './UserDetails';
+import MyTable from './components/MyTable';
+import MyHome from './components/MyHome';
+import UserDetails from './components/UserDetails';
 
 
 function App() {
@@ -17,7 +17,8 @@ function App() {
         <Switch>
           <Route exact path="/"><MyHome /></Route>
           <Route path="/myTable"><MyTable /></Route>
-          <Route path="/userDetails/:id"><UserDetails /></Route>
+          {/* <Route path="/userDetails/:id"><UserDetails /></Route> */}
+          <Route path="/userDetails/:id" render={(props) => <UserDetails {...props} />}/>
         </Switch>
     </Router>
     </div>

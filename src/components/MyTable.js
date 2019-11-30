@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './App.css';
 import axios from 'axios';
 
 
@@ -21,7 +20,7 @@ class MyTable extends React.Component {
           ...mState,
           userCollection
         }) 
-        console.log(res.data)
+        //console.log(res.data)
         this.callMe(1); 
       })
   }
@@ -44,10 +43,11 @@ class MyTable extends React.Component {
     this.setState({userData:this.state.userData}); 
   }
 
-  goToUserDetail(userId) {
-
+  viewDetails(element) {
+    localStorage.setItem("user_details",JSON.stringify(element));
+    // Below code is not working 
+    // this.props.history.push("/userDetails/"+element.id);
   }
-
 
   render() {
     return (
@@ -68,7 +68,7 @@ class MyTable extends React.Component {
                   <td>{element.name}</td>
                   <td>{element.email}</td>
                   <td>{element.contact}</td>
-                  <td><Link to={"/userDetails/"+element.id}>View Details</Link></td>
+                <td><Link to={"/userDetails/"+element.id} onClick={()=>this.viewDetails(element)}>View Details</Link></td>
                   </tr>);
                })
             }
